@@ -3,17 +3,13 @@ import 'package:flutter/material.dart';
 typedef Factory<T> = T Function(StateManServiceContainer container);
 
 class StateManServiceContainer {
-  StateManServiceContainer.scoped()
-      : _serviceProviders =
-            <String?, Map<Type, _StateManServiceProvider<Object>>>{};
+  StateManServiceContainer.scoped() : _serviceProviders = <String?, Map<Type, _StateManServiceProvider<Object>>>{};
 
-  static final StateManServiceContainer _instance =
-      StateManServiceContainer.scoped();
+  static final StateManServiceContainer _instance = StateManServiceContainer.scoped();
 
   factory StateManServiceContainer() => _instance;
 
-  final Map<String?, Map<Type, _StateManServiceProvider<Object>>>
-      _serviceProviders;
+  final Map<String?, Map<Type, _StateManServiceProvider<Object>>> _serviceProviders;
 
   /*
   void registerInstance<S>(S instance, {String? name}) {
@@ -35,36 +31,30 @@ class StateManServiceContainer {
 
   void unregister<T>([String? name]) {
     if (!(_serviceProviders[name]?.containsKey(T) ?? false)) {
-      throw FlutterError(
-          'Error when unregistering `$T`:\n\nType `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
+      throw FlutterError('Error when unregistering `$T`:\n\nType `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
     }
     _serviceProviders[name]?.remove(T);
   }
 
   T resolve<T>([String? name]) {
-    final providers =
-        _serviceProviders[name] ?? <Type, _StateManServiceProvider<Object>>{};
+    final providers = _serviceProviders[name] ?? <Type, _StateManServiceProvider<Object>>{};
     if (!(providers.containsKey(T))) {
-      throw FlutterError(
-          'Error when resolving `$T`:\n\nType `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
+      throw FlutterError('Error when resolving `$T`:\n\nType `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
     }
 
     final value = providers[T]?.get(this);
     if (value == null) {
-      throw FlutterError(
-          'Failed to resolve `$T`:\n\nThe type `$T` was not registered ${name == null ? '' : 'for the name `$name`'}');
+      throw FlutterError('Failed to resolve `$T`:\n\nThe type `$T` was not registered ${name == null ? '' : 'for the name `$name`'}');
     }
     if (value is T) return value as T;
-    throw FlutterError(
-        'Failed to resolve `$T`:\n\nValue is not registered as `$T`\n\nThe type `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
+    throw FlutterError('Failed to resolve `$T`:\n\nValue is not registered as `$T`\n\nThe type `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
   }
 
   @visibleForTesting
   T? resolveAs<S, T extends S>([String? name]) {
     final obj = resolve<S>(name);
     if (obj is! T) {
-      throw FlutterError(
-          'Failed to resolve `$S` as `$T`:\n\nThe type `$S` as `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
+      throw FlutterError('Failed to resolve `$S` as `$T`:\n\nThe type `$S` as `$T` is not registered ${name == null ? '' : 'for the name `$name`'}');
     }
     if (obj == null) return null;
     return obj;
@@ -76,17 +66,12 @@ class StateManServiceContainer {
     _serviceProviders.clear();
   }
 
-  void _setServiceProvider<T>(
-      String? name, _StateManServiceProvider<T> provider) {
+  void _setServiceProvider<T>(String? name, _StateManServiceProvider<T> provider) {
     final nameProviders = _serviceProviders;
-    if ((nameProviders.containsKey(name) &&
-        nameProviders[name]!.containsKey(T))) {
-      throw FlutterError(
-          'The type `$T` is already registered ${name == null ? '' : 'for the name `$name`'}');
+    if ((nameProviders.containsKey(name) && nameProviders[name]!.containsKey(T))) {
+      throw FlutterError('The type `$T` is already registered ${name == null ? '' : 'for the name `$name`'}');
     }
-    _serviceProviders.putIfAbsent(
-            name, () => <Type, _StateManServiceProvider<Object>>{})[T] =
-        provider as _StateManServiceProvider<Object>;
+    _serviceProviders.putIfAbsent(name, () => <Type, _StateManServiceProvider<Object>>{})[T] = provider as _StateManServiceProvider<Object>;
   }
 }
 

@@ -3,10 +3,11 @@ import 'package:flutter_stateman/src/stateman_service_container.dart';
 import 'package:flutter_stateman/src/stateman_storage.dart';
 
 class StateManMain extends StatefulWidget {
-  const StateManMain(
-      {super.key,
-      required this.child,
-      required this.serviceContainerInitializer});
+  const StateManMain({
+    super.key,
+    required this.child,
+    required this.serviceContainerInitializer,
+  });
   final StateManServiceContainer Function() serviceContainerInitializer;
   final Widget child;
 

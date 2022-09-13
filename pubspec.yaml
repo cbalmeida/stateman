@@ -1,6 +1,6 @@
 name: flutter_stateman
 description: Flutter StateManager is a simple state management and IoC library for Dart and Flutter.
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/cbalmeida/stateman
 
 environment:

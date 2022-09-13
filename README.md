@@ -2,32 +2,6 @@
 Flutter StateManager is a simple state management and IoC library for Dart and Flutter.
 -->
 
-## Configuration
-
-Add `flutter_stateman` to `pubspec.yaml` under the `dependencies` field.
-
-```yaml
-dependencies:
-  flutter_stateman: ^latest_version
-```
-
-or run this command in your project directory:
-
-```yaml
-$ flutter pub add flutter_stateman
-```
-
-
-
-## Import
-
-In your library add the following import:
-
-```dart
-import 'package:flutter_stateman/flutter_stateman.dart';
-```
-
-
 ## Usage
 
 Place the `StateManMain` class on the top of the `MaterialApp` and use the `serviceContainerInitializer`
@@ -50,7 +24,11 @@ class MyApp extends StatelessWidget {
         ..register((container) => CounterStore1(container.resolve<CounterRepository1>()))
         ..register((container) => CounterStore2(container.resolve<CounterRepository2>()))
         ..register((container) => CounterStore3(container.resolve<CounterRepository3>()))
-        ..register((container) => CounterStoreTotal([container.resolve<CounterStore1>(), container.resolve<CounterStore2>(), container.resolve<CounterStore3>()])),
+        ..register((container) => CounterStoreTotal([
+          container.resolve<CounterStore1>(),
+          container.resolve<CounterStore2>(),
+          container.resolve<CounterStore3>(),
+        ])),
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
         home: const CountersPage(),

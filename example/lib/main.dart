@@ -16,16 +16,13 @@ class MyApp extends StatelessWidget {
         ..register((container) => CounterRepository1())
         ..register((container) => CounterRepository2())
         ..register((container) => CounterRepository3())
-        ..register((container) =>
-            CounterStore1(container.resolve<CounterRepository1>()))
-        ..register((container) =>
-            CounterStore2(container.resolve<CounterRepository2>()))
-        ..register((container) =>
-            CounterStore3(container.resolve<CounterRepository3>()))
+        ..register((container) => CounterStore1(container.resolve<CounterRepository1>()))
+        ..register((container) => CounterStore2(container.resolve<CounterRepository2>()))
+        ..register((container) => CounterStore3(container.resolve<CounterRepository3>()))
         ..register((container) => CounterStoreTotal([
               container.resolve<CounterStore1>(),
               container.resolve<CounterStore2>(),
-              container.resolve<CounterStore3>()
+              container.resolve<CounterStore3>(),
             ])),
       child: MaterialApp(
         theme: ThemeData(primarySwatch: Colors.blue),
@@ -47,21 +44,17 @@ class CountersPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             const Spacer(),
-            StateManObserver<CounterStore1>(
-                builder: (context, counterStore1, child) {
+            StateManObserver<CounterStore1>(builder: (context, counterStore1, child) {
               return CounterWidget(store: counterStore1);
             }),
-            StateManObserver<CounterStore2>(
-                builder: (context, counterStore2, child) {
+            StateManObserver<CounterStore2>(builder: (context, counterStore2, child) {
               return CounterWidget(store: counterStore2);
             }),
-            StateManObserver<CounterStore3>(
-                builder: (context, counterStore3, child) {
+            StateManObserver<CounterStore3>(builder: (context, counterStore3, child) {
               return CounterWidget(store: counterStore3);
             }),
             const Spacer(),
-            StateManObserver<CounterStoreTotal>(
-                builder: (context, counterStoreTotal, child) {
+            StateManObserver<CounterStoreTotal>(builder: (context, counterStoreTotal, child) {
               return Text("Total: ${counterStoreTotal.value}");
             }),
             const Spacer(),
@@ -94,15 +87,19 @@ class CounterWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton(
-                onPressed: () => store.decrement(),
-                backgroundColor: Colors.red,
-                child: const Icon(Icons.exposure_minus_1)),
-            Text('${store.value}',
-                style: Theme.of(context).textTheme.headline4),
+              onPressed: () => store.decrement(),
+              backgroundColor: Colors.red,
+              child: const Icon(Icons.exposure_minus_1),
+            ),
+            Text(
+              '${store.value}',
+              style: Theme.of(context).textTheme.headline4,
+            ),
             FloatingActionButton(
-                onPressed: () => store.increment(),
-                backgroundColor: Colors.green,
-                child: const Icon(Icons.exposure_plus_1)),
+              onPressed: () => store.increment(),
+              backgroundColor: Colors.green,
+              child: const Icon(Icons.exposure_plus_1),
+            ),
           ],
         ),
       ),
@@ -230,8 +227,7 @@ class CounterStoreTotal extends ICounterStoreTotal {
   }
 
   @override
-  int get value =>
-      stores.map((e) => e.value).reduce((value, element) => value + element);
+  int get value => stores.map((e) => e.value).reduce((value, element) => value + element);
 
   @override
   void reset() {
