@@ -8,8 +8,8 @@ Flutter StateManager is a simple state management and IoC library for Dart and F
 
 ## Why use it?
 
-- Objects are grouped in single place (container). Enough of getting a crowded context tree when you have many controlers/repos/etc... (like Provider does!)
-- Objects are retrieved using an InheritedWidget. That means objects will reside where they shoudl be: in the _Context Tree_ (not in limbo!)
+- Objects are grouped in single place (container). Enough of getting a crowded context tree when you have many controllers/repos/etc... (like Provider does!)
+- Objects are retrieved using an InheritedWidget. That means objects will reside where they should be: in the _Context Tree_ (not in limbo!)
 - The object container is built on a Map. So it's lightning fast!
 
 
