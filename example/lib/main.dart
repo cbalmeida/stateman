@@ -56,7 +56,7 @@ class CountersPage extends StatelessWidget {
             const Spacer(),
             FloatingActionButton(
               onPressed: () {
-                StateManStorage.store<CounterStoreTotal>(context).reset();
+                StateManStorage.retrieve<CounterStoreTotal>(context).reset();
               },
               backgroundColor: Colors.purpleAccent,
               child: const Icon(Icons.clear),

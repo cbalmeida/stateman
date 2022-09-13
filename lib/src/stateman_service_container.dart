@@ -76,11 +76,9 @@ class StateManServiceContainer {
 }
 
 class _StateManServiceProvider<T> {
-  _StateManServiceProvider.instance(this.object)
-      : _instanceBuilder = null,
-        _singleton = false;
+  // _StateManServiceProvider.instance(this.object) : _instanceBuilder = null, _singleton = false;
 
-  _StateManServiceProvider.factory(this._instanceBuilder) : _singleton = false;
+  // _StateManServiceProvider.factory(this._instanceBuilder) : _singleton = false;
 
   _StateManServiceProvider.singleton(this._instanceBuilder) : _singleton = true;
 

@@ -8,7 +8,7 @@ class StateManObserver<T extends Listenable> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    T state = StateManStorage.store<T>(context);
+    T state = StateManStorage.retrieve<T>(context);
     return AnimatedBuilder(
       animation: state,
       child: child,
@@ -24,8 +24,8 @@ class StateManObserver2<T1 extends Listenable, T2 extends Listenable> extends St
 
   @override
   Widget build(BuildContext context) {
-    T1 state1 = StateManStorage.store<T1>(context);
-    T2 state2 = StateManStorage.store<T2>(context);
+    T1 state1 = StateManStorage.retrieve<T1>(context);
+    T2 state2 = StateManStorage.retrieve<T2>(context);
     return AnimatedBuilder(
       animation: state1,
       child: child,
@@ -45,9 +45,9 @@ class StateManObserver3<T1 extends Listenable, T2 extends Listenable, T3 extends
 
   @override
   Widget build(BuildContext context) {
-    T1 state1 = StateManStorage.store<T1>(context);
-    T2 state2 = StateManStorage.store<T2>(context);
-    T3 state3 = StateManStorage.store<T3>(context);
+    T1 state1 = StateManStorage.retrieve<T1>(context);
+    T2 state2 = StateManStorage.retrieve<T2>(context);
+    T3 state3 = StateManStorage.retrieve<T3>(context);
     return AnimatedBuilder(
       animation: state1,
       child: child,
@@ -71,10 +71,10 @@ class StateManObserver4<T1 extends Listenable, T2 extends Listenable, T3 extends
 
   @override
   Widget build(BuildContext context) {
-    T1 state1 = StateManStorage.store<T1>(context);
-    T2 state2 = StateManStorage.store<T2>(context);
-    T3 state3 = StateManStorage.store<T3>(context);
-    T4 state4 = StateManStorage.store<T4>(context);
+    T1 state1 = StateManStorage.retrieve<T1>(context);
+    T2 state2 = StateManStorage.retrieve<T2>(context);
+    T3 state3 = StateManStorage.retrieve<T3>(context);
+    T4 state4 = StateManStorage.retrieve<T4>(context);
     return AnimatedBuilder(
       animation: state1,
       child: child,

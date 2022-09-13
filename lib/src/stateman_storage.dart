@@ -11,7 +11,7 @@ class StateManStorage extends InheritedWidget {
     return stateManStorage.serviceContainer;
   }
 
-  static T store<T>(BuildContext context, [String? name]) {
+  static T retrieve<T>(BuildContext context, [String? name]) {
     T result = container(context).resolve<T>(name);
     return result;
   }

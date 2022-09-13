@@ -1,11 +1,19 @@
-## 0.0.1
+## 0.0.5
 
-* Initial release.
+* Refactor/cleanup.
+
+## 0.0.4
+
+* Refactor/cleanup.
+
+## 0.0.3
+
+* ReadMe.
 
 ## 0.0.2
 
 * License.
 
-## 0.0.3
+## 0.0.1
 
-* ReadMe.
+* Initial release.
