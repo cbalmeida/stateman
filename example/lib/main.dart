@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_stateman/flutter_stateman.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stateman/stateman.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +34,7 @@ class CountersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Counters")),
+      appBar: AppBar(title: const Text("flutter_stateman")),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -55,11 +55,12 @@ class CountersPage extends StatelessWidget {
             }),
             const Spacer(),
             FloatingActionButton(
-                onPressed: () {
-                  StateManStorage.store<CounterStoreTotal>(context).reset();
-                },
-                backgroundColor: Colors.red,
-                child: const Icon(Icons.clear)),
+              onPressed: () {
+                StateManStorage.store<CounterStoreTotal>(context).reset();
+              },
+              backgroundColor: Colors.purpleAccent,
+              child: const Icon(Icons.clear),
+            ),
             const Spacer(),
           ],
         ),
@@ -81,9 +82,9 @@ class CounterWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FloatingActionButton(onPressed: () => store.decrement(), child: const Icon(Icons.exposure_minus_1)),
+            FloatingActionButton(onPressed: () => store.decrement(), backgroundColor: Colors.red, child: const Icon(Icons.exposure_minus_1)),
             Text('${store.value}', style: Theme.of(context).textTheme.headline4),
-            FloatingActionButton(onPressed: () => store.increment(), child: const Icon(Icons.exposure_plus_1)),
+            FloatingActionButton(onPressed: () => store.increment(), backgroundColor: Colors.green, child: const Icon(Icons.exposure_plus_1)),
           ],
         ),
       ),
@@ -91,12 +92,8 @@ class CounterWidget extends StatelessWidget {
   }
 }
 
-/// ============================================
-/// repositories, stores, etc...
-/// ============================================
-
 /// --------------------------------------------
-/// repositories
+/// my repositories
 /// --------------------------------------------
 
 abstract class ICounterRepository {
@@ -135,7 +132,7 @@ class CounterRepository3 extends CounterRepository {
 }
 
 /// --------------------------------------------
-/// stores
+/// my stores
 /// --------------------------------------------
 
 abstract class ICounterStore extends ChangeNotifier {

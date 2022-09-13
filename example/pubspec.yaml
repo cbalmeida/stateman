@@ -9,7 +9,7 @@ environment:
   sdk: ">=2.17.6 <3.0.0"
 
 dependencies:
-  stateman:
+  flutter_stateman:
     path: ../
   flutter:
     sdk: flutter

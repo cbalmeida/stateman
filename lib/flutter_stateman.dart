@@ -1,4 +1,4 @@
-library stateman;
+library flutter_stateman;
 
 export 'src/stateman_main.dart';
 export 'src/stateman_observer.dart';

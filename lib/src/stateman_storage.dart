@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stateman/src/stateman_service_container.dart';
+import 'package:flutter_stateman/src/stateman_service_container.dart';
 
 class StateManStorage extends InheritedWidget {
   const StateManStorage({super.key, required this.serviceContainer, required super.child});

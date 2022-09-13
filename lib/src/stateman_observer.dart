@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stateman/src/stateman_storage.dart';
+import 'package:flutter_stateman/src/stateman_storage.dart';
 
 class StateManObserver<T extends Listenable> extends StatelessWidget {
   final Widget Function(BuildContext context, T state, Widget? child) builder;

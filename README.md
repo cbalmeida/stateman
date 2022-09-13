@@ -4,17 +4,17 @@ StateManager is a simple state management and IoC library for Dart and Flutter.
 
 ## Configuration
 
-Add `stateman` to `pubspec.yaml` under the `dependencies` field.
+Add `flutter_stateman` to `pubspec.yaml` under the `dependencies` field.
 
 ```yaml
 dependencies:
-  kiwi: ^latest_version
+  flutter_stateman: 0.0.3
 ```
 
 or run this command in your project directory:
 
 ```yaml
-$ flutter pub add stateman
+$ flutter pub add flutter_stateman
 ```
 
 
@@ -24,5 +24,5 @@ $ flutter pub add stateman
 In your library add the following import:
 
 ```dart
-import 'package:stateman/stateman.dart';
+import 'package:flutter_stateman/flutter_stateman.dart';
 ```

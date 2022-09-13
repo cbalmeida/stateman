@@ -1,6 +1,6 @@
-name: stateman
-description: State Manager
-version: 0.0.2
+name: flutter_stateman
+description: Flutter State Manager
+version: 0.0.3
 homepage: https://github.com/cbalmeida/stateman
 
 environment:
