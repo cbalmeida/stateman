@@ -2,12 +2,23 @@
 Flutter StateManager is a simple state management and IoC library for Dart and Flutter.
 -->
 
+## Description
+
+Flutter StateManager is a simple state management and IoC library for Dart and Flutter.
+
+## Why use it?
+
+- Objects are grouped in single place (container). Enough of getting a crowded context tree when you have many controlers/repos/etc... (like Provider does!)
+- Objects are retrieved using an InheritedWidget. That means objects will reside where they shoudl be: in the _Context Tree_ (not in limbo!)
+- The object container is built on a Map. So it's lightning fast!
+
+
 ## Usage
 
 Place the `StateManMain` class on the top of the `MaterialApp` and use the `serviceContainerInitializer`
 property to create the `StateManServiceContainer` which will contain all the objects you will access later.
 
-You can `register` any object constructor and use `container.resolve<T>()` to retrieve any other instance 
+You can `register` any object constructor and use `container.resolve<T>()` to retrieve any other instance
 of the type `T` from the container.
 
 ```dart
