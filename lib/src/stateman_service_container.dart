@@ -11,20 +11,6 @@ class StateManServiceContainer {
 
   final Map<String?, Map<Type, _StateManServiceProvider<Object>>> _serviceProviders;
 
-  /*
-  void registerInstance<S>(S instance, {String? name}) {
-    _setServiceProvider(name, _StateManServiceProvider<S>.instance(instance));
-  }
-
-  void registerFactory<S>(Factory<S> factory, {String? name}) {
-    _setServiceProvider(name, _StateManServiceProvider<S>.factory(factory));
-  }
-
-  void registerSingleton<S>(Factory<S> factory, {String? name}) {
-    _setServiceProvider(name, _StateManServiceProvider<S>.singleton(factory));
-  }
-   */
-
   void register<S>(Factory<S> factory, {String? name}) {
     _setServiceProvider(name, _StateManServiceProvider<S>.singleton(factory));
   }
